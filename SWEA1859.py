@@ -17,6 +17,7 @@
 # 일단 이익이 되는지 판단하고 이익을 계산
 #
 def find_max_benefit(my_list):
+    #print(my_list)
     max_idx = my_list.index(max(my_list))
     if len(my_list) == 1: # 재귀함수 종료 케이스
         return 0
@@ -27,11 +28,11 @@ def find_max_benefit(my_list):
                 break
             else:
                 result += (my_list[max_idx] - num) # 최댓값과 리스트 내 각 요소의 차이를 result에 더함
-        try:
+        #print(result)
+        if max(my_list) != my_list[-1]:
             return result + find_max_benefit(my_list[max_idx+1:]) # 위에서 구한 최대 이익 + max_idx 뒤의 리스트에서의 최대 이익
-        except:
+        else:
             return result
-
 
 T = int(input()) # 테스트 케이스의 수
 
@@ -47,4 +48,3 @@ for test in range(T):
     print(f'#{test+1} {max_benefit}')
 
 # 10개의 케이스 중 7개는 통과, 3개에서 runtime error남
-
