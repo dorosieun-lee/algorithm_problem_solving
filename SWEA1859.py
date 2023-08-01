@@ -48,3 +48,32 @@ for test in range(T):
     print(f'#{test+1} {max_benefit}')
 
 # 10개의 케이스 중 7개는 통과, 3개에서 runtime error남
+
+T = int(input())
+
+for test in range(1, T+1):
+    N = int(input()) # 예측 가능한 날짜
+    prices = list(map(int, input().split()))
+
+    start = 0
+    end = 0
+
+    max_benefit = 0
+
+    while start < N:
+        max_idx = prices[start:].index(max(prices[start:]))
+        max_idx += start
+        if max_idx == start:
+            max_benefit += 0
+            break
+        else:
+            max_price = max(prices[start:])
+            end = max_idx
+            for price in prices[start:end]:
+                max_benefit += (max_price - price)
+
+        start = max_idx + 1
+
+
+    print(f'#{test} {max_benefit}')
+# 5개 통과, 5개 런타임 에러. 대체 왜?????? ㅂㄷㅂㄷㅂㄷㅂㄷㅂㄷ
