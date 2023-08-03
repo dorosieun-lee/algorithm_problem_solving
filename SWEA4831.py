@@ -40,3 +40,25 @@ for test in range(1, T+1):
         print(f'#{test} 0')
     else:
         print(f'#{test} {cnt_charge}')
+
+# 강사님 코드
+    K, N, M = list(map(int, input().split()))
+    station_idx = list(map(int, input().split()))
+
+    # now와 next를 이용해서 인덱스를 옮겨가며 풀이
+    now = 0
+    next = now + K
+    cnt = 0
+    while next != N:
+        if next in station_idx:
+            cnt += 1
+            now = next
+            next = now + K
+        else:
+            next -= 1
+
+        if next == now:
+            cnt = 0
+            break
+
+    print(f'#{test} {cnt}')
