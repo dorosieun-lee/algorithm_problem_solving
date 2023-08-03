@@ -57,23 +57,21 @@ for test in range(1, T+1):
 
     start = 0
     end = 0
-
     max_benefit = 0
 
     while start < N:
         max_idx = prices[start:].index(max(prices[start:]))
-        max_idx += start
-        if max_idx == start: # start 부분이 max 면 사재기 안하는게 이득
+        if max_idx == 0: # start 부분이 max 면 사재기 안하는게 이득
             max_benefit += 0
 
         else: # start 부분이 max가 아니면, max인 날 전까지 하나씩 구매해서 max 날에 판매하는게 최대 이득
-            max_price = max(prices[start:])
-            end = max_idx
-            for price in prices[start:end]:
+            end = start + max_idx
+            sub_price = prices[start:end+1]
+            max_price = max(sub_price)
+            for price in sub_price:
                 max_benefit += (max_price - price)
 
-        start = max_idx + 1
+        start += max_idx + 1
 
 
     print(f'#{test} {max_benefit}')
-# 8개 통과, 2개 런타임 에러. 대체 왜?????? ㅂㄷㅂㄷㅂㄷㅂㄷㅂㄷ
