@@ -24,3 +24,5 @@ for test in range(1, T+1):
     print(f'#{test}')
     for i in range(N):
         print(*transform[i][:])
+
+# zip 함수를 활용해볼 수 있겠다.
