@@ -1,4 +1,6 @@
-# 삼성시 버스노선
+# SWEA 6485 삼성시 버스노선
+# counting sort 알고리즘 사용 가능
+
 T = int(input())
 
 for test in range(1, T+1):
@@ -26,3 +28,8 @@ for test in range(1, T+1):
                 cnt_busline[idx] += 1
 
     print(f'#{test}', *cnt_busline)
+    # 다른 출력 방식
+    # print(f'#{test}', end = ' ')
+    # for i in cnt_busline:
+    #     print(i, end = ' ')
+    # print()

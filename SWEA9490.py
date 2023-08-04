@@ -11,9 +11,9 @@ for test in range(1, T+1):
     for i in range(N):
         for j in range(M):
             pollen_sum = arr[i][j] # 자기자신
-            num = arr[i][j]
+            num = arr[i][j] # 이거 없어도 되는 변수 (메모리 낭비)
             for k in range(4):
-                for p in range(1, num+1):
+                for p in range(1, num+1): # 여기서 바로 arr[i][j] 넣으면 됨
                     ni = i + di[k] * p
                     nj = j + dj[k] * p
                     if (0 <= ni < N) and (0 <= nj < M):

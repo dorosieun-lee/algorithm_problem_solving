@@ -16,38 +16,6 @@
 # 최대 이익을 보려면, 가장 비싼 날에 팔아야함
 # 일단 이익이 되는지 판단하고 이익을 계산
 #
-# def find_max_benefit(my_list):
-#     #print(my_list)
-#     max_idx = my_list.index(max(my_list))
-#     if len(my_list) == 1: # 재귀함수 종료 케이스
-#         return 0
-#     else:
-#         result = 0
-#         for i, num in enumerate(my_list):
-#             if i == max_idx: # 자기 자신이 가격이 최대이면, 반복문에서 종료
-#                 break
-#             else:
-#                 result += (my_list[max_idx] - num) # 최댓값과 리스트 내 각 요소의 차이를 result에 더함
-#         #print(result)
-#         if max(my_list) != my_list[-1]:
-#             return result + find_max_benefit(my_list[max_idx+1:]) # 위에서 구한 최대 이익 + max_idx 뒤의 리스트에서의 최대 이익
-#         else:
-#             return result
-#
-# T = int(input()) # 테스트 케이스의 수
-#
-# for test in range(T):
-#     N = int(input()) # 연속된 N일에 해당하는 N
-#     my_list = list(map(int, input().split())) # 각 날의 매매가, 10000이하
-#     max_idx = my_list.index(max(my_list))
-#     if max_idx == 0:
-#         max_benefit = 0
-#     else:
-#         max_benefit = find_max_benefit(my_list)
-#
-#     print(f'#{test+1} {max_benefit}')
-
-# 10개의 케이스 중 7개는 통과, 3개에서 runtime error남
 
 T = int(input())
 

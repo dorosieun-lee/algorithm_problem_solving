@@ -31,6 +31,20 @@ for test in range(1, T+1):
                 sub_cnt = 0
                 #print(f'{count}: row{i} {j}')
 
+    """
+    강사님 코드 (코드가 더 간결함)
+    ans = 0
+    for i in range(N):
+        cnt = 0
+        for j in range(N):
+        if arr[i][j] == 1:
+            cnt += 1
+        elif j = N-1 or arr[i][j] == 0:
+            if cnt == K:
+                ans += 1
+            cnt = 0
+        
+    """
 
     # 열 우선 순회
     for j in range(N):
