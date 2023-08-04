@@ -9,6 +9,10 @@
 # 손님이 왔을 때 요청한 총 길이가 M일 때 적어도 M만큼의 떡을 얻기 위해
 # 절단기에 설정할 수 있는 높이의 최댓값을 구하는 프로그램을 작성하시오.
 
+# input data
+# 4 6
+# 19 15 10 17
+
 N, M = map(int, input().split()) # N: 떡의 개수, M: 요청한 떡의 길이
 height = list(map(int, input().split())) # 떡의 개별 높이 (각 높이는 0보다 크고 10억보다 작거나 같다)
 
@@ -24,6 +28,6 @@ for h in range(max(height), 0, -1):
 
 print(h)
 
-# 이진 탐색 사용 O
+# 이진 탐색 사용 O ...?
 height = sorted(height)
 
