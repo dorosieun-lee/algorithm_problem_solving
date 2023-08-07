@@ -25,4 +25,23 @@ def solution(words, queries):
 
     return answer
 
+def solution(words, queries):
+    answer = []
+    for target in queries:
+        cnt = 0
+
+        idx = target.find("?")
+        start, end = 0, idx
+        if idx ==  0:
+            idx = target[::-1].find("?")
+            start, end = idx, len(target)
+
+        for word in words:
+            if len(target) == len(word) and word[start:end] == target[start:end]:
+                cnt += 1
+        answer.append(cnt)
+
+    return answer
+
+
 print(solution(words, queries))
