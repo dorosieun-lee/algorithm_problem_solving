@@ -2,7 +2,7 @@
 T = int(input())
 
 order = ["ZRO", "ONE", "TWO", "THR", "FOR", "FIV", "SIX", "SVN", "EGT", "NIN"]
-for test in range(1, 2): #T+1):
+for test in range(1, T+1):
     input()
     lst = input().split()
 
@@ -14,5 +14,8 @@ for test in range(1, 2): #T+1):
 
     print(f'#{test}')
     print(*new_lst)
+
+
+
 
 
