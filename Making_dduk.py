@@ -13,9 +13,12 @@
 # 4 6
 # 19 15 10 17
 
-N, M = map(int, input().split()) # N: 떡의 개수, M: 요청한 떡의 길이
-height = list(map(int, input().split())) # 떡의 개별 높이 (각 높이는 0보다 크고 10억보다 작거나 같다)
+import time
 
+N, M = [4, 6] #map(int, input().split()) # N: 떡의 개수, M: 요청한 떡의 길이
+height = [19, 15, 10, 17] #list(map(int, input().split())) # 떡의 개별 높이 (각 높이는 0보다 크고 10억보다 작거나 같다)
+
+start = time.time()
 # 이진 탐색 사용 X
 for h in range(max(height), 0, -1):
     get = 0
@@ -27,7 +30,33 @@ for h in range(max(height), 0, -1):
         break
 
 print(h)
+print(f"time : {time.time() - start: 0.10f}") # 0.0010023117
 
-# 이진 탐색 사용 O ...?
+
+start = time.time()
+# 이진 탐색 사용 O
+# 이진 탐색의 개념인 중간값을 이용
 height = sorted(height)
+if len(height) % 2 == 0: # 떡의 개수가 짝수이면
+    h = (height[len(height)//2 - 1] + height[len(height)//2]) // 2
 
+else:
+    h = height[len(height)//2]
+
+while True:
+    get = 0
+    for dduck in height:
+        if dduck - h > 0:
+            get += dduck - h
+
+    if get > M:
+        h += 1
+        continue
+    elif get < M:
+        h -= 1
+        continue
+    elif get == M:
+        break
+
+print(h)
+print(f"time : {time.time() - start: 0.10f}") # 0.0000000000

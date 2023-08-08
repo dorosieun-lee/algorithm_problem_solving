@@ -4,8 +4,8 @@
 words = ["frodo", "front", "frost", "frozen", "frame", "kakao"]
 queries = ["fro??", "????o", "fr???", "fro???", "pro?"]
 
-
-def solution(words, queries):
+# 이진탐색 사용 X
+def solution1(words, queries):
     answer = []
     for target in queries:
         cnt = 0
@@ -25,7 +25,8 @@ def solution(words, queries):
 
     return answer
 
-def solution(words, queries):
+# solution1과 똑같이 실패
+def solution2(words, queries):
     answer = []
     for target in queries:
         cnt = 0
@@ -34,7 +35,9 @@ def solution(words, queries):
         start, end = 0, idx
         if idx == 0:
             idx = target[::-1].find("?")
-            start, end = idx, len(target)
+            start, end = len(target) - idx, len(target)
+
+        print(start, end)
 
         for word in words:
             if len(target) == len(word) and word[start:end] == target[start:end]:
@@ -44,4 +47,6 @@ def solution(words, queries):
     return answer
 
 
-print(solution(words, queries))
+print(solution2(words, queries))
+
+# words 를 정렬하고 이진 탐색 알고리즘처럼 중간값을 queries랑 비교해볼까..?
