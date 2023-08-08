@@ -43,3 +43,21 @@ for test in range(1, T+1):
 
 
     print(f'#{test} {max_benefit}')
+
+
+# 다른 풀이
+T = int(input())
+
+for test in range(1, T+1):
+    N = int(input())
+    prices = list(map(int, input().split()))
+    benefit = 0
+    MAX = prices[-1]
+
+    for i in range(len(prices)-2, -1, -1):
+        if prices[i] > MAX:
+            MAX = prices[i]
+        else:
+            benefit += MAX - prices[i]
+
+    print(f'#{test} {benefit}')

@@ -32,7 +32,7 @@ def solution(words, queries):
 
         idx = target.find("?")
         start, end = 0, idx
-        if idx ==  0:
+        if idx == 0:
             idx = target[::-1].find("?")
             start, end = idx, len(target)
 
