@@ -26,3 +26,32 @@ for test in range(1, T + 1):
                 cnt += 1
 
     print(f'#{test} {cnt}')
+
+"""
+강사님 코드
+MAP = [list(input()) for _ in range(8)]
+
+90도 회전 시켜서 행 탐색 두번하면 안될까?
+
+90도 회전은 how?
+list(zip(*MAP))
+
+원래 list + 90도 회전시킨 list -> 길이 2배인 리스트
+MAP += list(zip(*MAP) 
+
+행 우선 조회 1번만 하면 됨
+0 부터 9-N 인덱스까지 
+
+for t in range(1,11):
+    N = int(input())
+    MAP = [list(input()) for _ in range(8)]
+    MAP += zip(*MAP)
+    result = 0
+
+    for m in MAP:
+        for i in range(8 - N + 1):
+            if m[i : i + N] == m[i : i + N][::-1]:
+                result += 1
+
+    print(f'#{t} {result}')
+"""

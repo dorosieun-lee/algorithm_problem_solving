@@ -42,3 +42,24 @@ for test in range(1, T+1):
         for m in range(M):
             word += MAP[idx[0]+m][idx[1]]
     print(f'#{test} {word}')
+
+
+"""
+강사님 코드 -> MAP 90도 뒤집어서 이어 붙이기
+T = int(input())
+
+for test in range(1, T+1):
+    N, M = list(map(int, input().split()))
+    MAP = [list(input()) for _ in range(N)]
+    MAP += list(zip(*MAP))
+    
+    for m in MAP:
+        for i in range(0, N - M + 1):
+            if m[i:i+M] == m[i:i+M][::-1]:
+                result = m[i:i+M]
+                break
+                
+    result = ''.join(result)
+    
+    print(f'#{test} {result}')
+"""
