@@ -46,6 +46,24 @@ def solution2(words, queries):
 
     return answer
 
+# 이진탐색 사용
+def solution3(words, queries):
+    answer = []
+    for target in queries:
+        cnt = 0
+
+        idx = target.find("?")
+        start, end = 0, idx
+        if idx == 0:
+            idx = target[::-1].find("?")
+            start, end = len(target) - idx, len(target)
+
+
+def str_binary_search(words, start, end, key):
+    mid = (start + end) // 2
+    while start <= end:
+        if words[mid] == key:
+            return
 
 print(solution2(words, queries))
 

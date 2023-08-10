@@ -16,7 +16,7 @@
 import time
 
 N, M = [4, 6] #map(int, input().split()) # N: 떡의 개수, M: 요청한 떡의 길이
-height = [19, 15, 10, 17] #list(map(int, input().split())) # 떡의 개별 높이 (각 높이는 0보다 크고 10억보다 작거나 같다)
+height = [18, 15, 10, 17] #list(map(int, input().split())) # 떡의 개별 높이 (각 높이는 0보다 크고 10억보다 작거나 같다)
 
 start = time.time()
 # 이진 탐색 사용 X
