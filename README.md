@@ -4,3 +4,5 @@
 programing language : Python3
 
 e-mail address : dorothy.lee.723@gmail.com
+
+- 코딩테스트 한정 알고리즘 종류의 중요성: 시뮬레이션(구현) > 탐색(DFS/BFS 포함) > 그리디 > DP
