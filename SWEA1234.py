@@ -32,9 +32,10 @@ for test in range(1, T+1):
         else:
             stack.push(n)
 
-    result = []
-    while not stack.is_empty():
-        result.append(stack.pop())
+    # result = []
+    # while not stack.is_empty():
+    #     result.append(stack.pop())
 
-    print(f'#{test}', ''.join(result[::-1]))
+    # print(f'#{test}', ''.join(result[::-1]))
+    print(f'#{test}', ''.join(stack.s[:stack.top+1]))
 

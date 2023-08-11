@@ -28,7 +28,7 @@ k, tangerine = 2, [1, 1, 1, 1, 2, 2, 2, 3]
 print(solution(k, tangerine))
 
 """
-다른 사람 풀이(by 블티)
+다른 사람 풀이(by 블티) -> 신박해!
 
 from collections import Counter
 

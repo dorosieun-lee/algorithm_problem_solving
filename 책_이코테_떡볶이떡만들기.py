@@ -15,8 +15,8 @@
 
 import time
 
-N, M = [4, 6] #map(int, input().split()) # N: 떡의 개수, M: 요청한 떡의 길이
-height = [18, 15, 10, 17] #list(map(int, input().split())) # 떡의 개별 높이 (각 높이는 0보다 크고 10억보다 작거나 같다)
+N, M = [4, 7] #map(int, input().split()) # N: 떡의 개수, M: 요청한 떡의 길이
+height = [10, 15, 10, 17] #list(map(int, input().split())) # 떡의 개별 높이 (각 높이는 0보다 크고 10억보다 작거나 같다)
 
 start = time.time()
 # 이진 탐색 사용 X
@@ -43,6 +43,7 @@ if len(height) % 2 == 0: # 떡의 개수가 짝수이면
 else:
     h = height[len(height)//2]
 
+flag = [0, 0] # [get > M에 한번 걸렸으면 1로 변경, get < M에 한번 걸렸으면 1로 변경]
 while True:
     get = 0
     for dduck in height:
@@ -51,10 +52,15 @@ while True:
 
     if get > M:
         h += 1
-        continue
+        flag[0] = 1
+        if flag[1] == 1: # get < M 이라서 h -= 1를 했더니 get > M이 되었다.
+            h -= 1 # 위에서 h+=1 한걸 취소해주는 개념
+            break
     elif get < M:
         h -= 1
-        continue
+        flag[1] = 1
+        if flag[0] == 1: # get > M 이라서 h += 1를 했더니 get < M이 되었다.
+            break
     elif get == M:
         break
 

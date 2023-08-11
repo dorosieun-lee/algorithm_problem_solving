@@ -12,6 +12,8 @@
 # 쇠막대기 안에 레이저가 몇 개 존재하는지 세기
 #
 
+
+"""
 T = int(input())
 
 for test in range(1, T+1):
@@ -48,3 +50,36 @@ for test in range(1, T+1):
         pipe_cnt += razer_cnt + 1
 
     print(f'#{test} {pipe_cnt}')
+"""
+
+# 레이저 입장에서 생각해보자.
+# 레이저가 존재하는 시점의 왼쪽에 열린 괄호 갯수만큼 쇠막대기가 생긴다
+# 잘린 쇠막대기 개수: 괄호 열리면 +1, 닫히면 +1
+# 쌓여있는 쇠막대기 개수: 괄호 열리면 +1, 닫히면 -1
+
+# ( => cnt += 1 (쇠막대기 개수 +1)
+# () => ans += cnt (쌓인 쇠막대기 수만큼 잘린 조각 추가됨)
+# ) => ans += 1, cnt -= 1
+
+T = int(input())
+
+for test in range(1, T+1):
+    my_str = input()
+
+    pipes = 0
+    total = 0
+    for i in range(len(my_str)-1):
+        if my_str[i:i+2] == '()':
+            total += pipes
+        elif my_str[i] == '(':
+            # print('open',i)
+            pipes += 1
+        elif my_str[i] == ')':
+            if my_str[i-1] != '(':
+                # print('close',i)
+                total += 1
+                pipes -= 1
+
+    total += 1
+
+    print(f'#{test} {total}')
