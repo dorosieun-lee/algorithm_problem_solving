@@ -2,7 +2,22 @@
 
 T = int(input())
 
-
+# 피연산자의 개수가 연산자의 개수보다 하나 더 많아야 계산할 수 있는 수식
+'''
+number, operation = 0, 0
+for f in formula:
+    if f.isdecimal():
+        number += 1
+    elif f in "+*-/":
+        operation += 1
+        
+if number - operation == 1:
+    계산 수행
+else:
+    print("error")
+    
+# -> 피연산자, 연산자 개수가 잘 맞아도 연산자가 몰려있는 경우가 있으면 잘못된 수식임 (이 코드로는 그건 못 걸러냄)
+'''
 def check(formula):
     stack = []
     if len(formula) == 1:
