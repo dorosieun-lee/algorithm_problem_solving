@@ -4,37 +4,40 @@
 # 미완성...
 # https://www.acmicpc.net/problem/18352
 
-def dfs_find_dist(N, X, adj_dict):
-    visited = [0] * (N+1)
-    n = X
-    visited[n] = 1
-    stack = []
-    dist = {i: [] for i in range(1, N+1)}
+def find_path(start, route, K):
+    if len(route) <= K:
+        path.append(route)
+        if len(route) == K:
+            return
+    for n in range(1, N+1):
+        #print(start, n)
+        if adj_arr[start][n] == 1: # 길이 있다
+            #print(route)
+            find_path(n, route + [n], K)
 
-    while True:
-        for w in adj_dict[n]:
-            if visited[w] == 0:
-                n = w
-                stack.append(n)
-                visited[n] = 1
-                if len(stack) == K:
-                    print(stack)
-                    Kpath_node.append(stack[-1])
-                break
-
-        else:
-            if stack:
-                n = stack.pop()
-            else:
-                return Kpath_node
-
-# N: 도시의 개수, M: 도로의 개수, K: 찾고자하는 최단 거리, X: 출발지점
-N, M, K, X = list(map(int, input().split()))
+N, M, K, X = map(int, input().split())
 edges = [list(map(int, input().split())) for _ in range(M)]
+flag = False
 
-adj_dict = {i: [] for i in range(1, N+1)}
+adj_arr = [[0]* (N+1) for _ in range(N+1)] # NxN 0으로 가득찬 행렬
 for edge in edges:
-    adj_dict[edge[0]].append(edge[1])
+    adj_arr[edge[0]][edge[1]] = 1 # edge[0]에서 edge[1] 로 가는 길이 존재함을 표시
 
-Kpath_node = dfs_find_Kpath(N, X, K, adj_dict)
-print(Kpath_node)
+path = []
+find_path(X, [], K)
+# X 지점에서 K번 이내로 움직여서 갈 수 있는 경로 다 찾았음
+path.remove([])
+my_dict = {i: [] for i in range(1, N+1)}
+for p in path:
+    my_dict[p[-1]].append(len(p))
+
+for k, v in my_dict.items():
+    if v and min(v) == K:
+        flag = True
+        print(k)
+
+
+if not flag:
+    print(-1)
+
+print(path)
