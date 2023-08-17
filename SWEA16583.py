@@ -1,23 +1,21 @@
 # SWEA 16583 토너먼트 카드게임
-# 런타임 에러
-# 4 <= N <= 100 이므로 시간초과는 아님
-# 그럼 인덱스 에러..?
+# [1,2] == [2,1] => False
 T = int(input())
 
 
 # 가위바위보를 하자 -> 이긴 학생의 인덱스를 반환
 def fight(a, b):
-    if [lst[a], lst[b]] == [1, 2]:
+    if set([lst[a], lst[b]]) == set([1, 2]):
         if lst[a] == 2:
             return a
         else:
             return b
-    elif [lst[a], lst[b]] == [1, 3]:
+    elif set([lst[a], lst[b]]) == set([1, 3]):
         if lst[a] == 1:
             return a
         else:
             return b
-    elif [lst[a], lst[b]] == [2, 3]:
+    elif set([lst[a], lst[b]]) == set([2, 3]):
         if lst[a] == 3:
             return a
         else:
@@ -35,23 +33,15 @@ def div(i, j):
         return fight(i, j)
     else:
         mid = (i+j)//2
-        winners.append(div(i, mid))
-        winners.append(div(mid+1, j))
+        win1 = div(i, mid)
+        win2 = div(mid+1, j)
+        return fight(win1, win2)
 
 
-for test in range(1, 2): #T+1):
+for test in range(1, T+1):
     N = int(input())
     lst = list(map(int, input().split()))
 
-    winners = []
-    div(0, N-1)
-    print(winners)
-    while None in winners:
-        winners.remove(None)
-    while len(winners) >= 2:
-        new_winners = []
-        for i in range(0, len(winners), 2):
-            new_winners.append(fight(winners[i], winners[i+1]))
-        winners = new_winners
+    result = div(0, N-1)
 
-    print(f'#{test} {winners[0] + 1}')
+    print(f'#{test} {result+1}')
