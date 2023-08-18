@@ -4,7 +4,7 @@
 # https://www.acmicpc.net/problem/18352
 
 # 테스트 케이스로 제시된 것은 됨
-# 채점 결과 fail~~~, 시간초과 뜸...ㅎㅎ
+# 채점 결과 fail~~~, 시간초과, 메모리초과 뜸...ㅎㅎ
 
 def find_path(start, route, K):
     # K 이상은 가지 않겠다.
@@ -28,7 +28,7 @@ edges = [list(map(int, input().split())) for _ in range(M)]
 
 flag = False
 
-adj_arr = [[0] * (N+1) for _ in range(N+1)] # NxN 0으로 가득찬 행렬
+adj_arr = [[0] * (N+1) for _ in range(N+1)] # (N+1)x(N+1) 0으로 가득찬 행렬
 # N+1인 이유는, 도시의 번호를 인덱스로 사용하기 위해서
 
 for edge in edges:
@@ -38,14 +38,13 @@ path = []
 find_path(X, [], K)
 # X 지점에서 K번 이내로 움직여서 갈 수 있는 경로 다 찾았음
 path.remove([]) # 필요없는거 지우기~
-my_dict = {i: [] for i in range(1, N+1)} # X번 도시에서 i번 도시로 가는 경로의 거리
+path.sort() # 내부 리스트 길이 순으로 정렬
+min_path = [K+1] * N
 for p in path:
-    my_dict[p[-1]].append(len(p))
-
-for k, v in my_dict.items():
-    if v and min(v) == K: # 최단거리가 K인 도시 번호 프린트
+    min_path[p[-1]] = min(min_path[p[-1]], len(p))
+    if len(p) == K and min_path[p[-1]] == K:
         flag = True
-        print(k)
+        print(p[-1])
 
 if not flag: # 위의 상황 없음 -> -1 프린트
     print(-1)
