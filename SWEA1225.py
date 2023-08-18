@@ -38,3 +38,24 @@ while True:
             break
 
     print(f'#{tc}', *result)
+
+'''
+강사님 코드
+queue의 enqueue, dequeue를 이용해서 훨씬 간결함
+
+def makePw(pw):
+    while True:
+        for i in range(1,6):
+            num = pw.pop(0)
+            pw.append(num - i)
+
+            if pw[-1] <= 0:
+                pw[-1] = 0
+                return pw
+                
+for _ in range(1, 11):
+    t = int(input())
+    pw = list(map(int,input().split()))
+    result = makePw(pw)
+    print(f'#{t}', *result)
+'''
