@@ -1,5 +1,4 @@
 # SWEA 16584 배열 최소 합
-# 다시 공부할 필요가 있음!
 
 # 완전탐색 -> 런타임 에러
 def permutation(i, N):
@@ -34,13 +33,28 @@ for test in range(1, T+1):
 
     print(f'#{test} {MIN}')
 
-
-def f(i, N, s):
-    if i == N:
+# DFS를 이용한 풀이
+def search(row, SUM):
+    global MIN
+    if row == N:
+        MIN = min(MIN, SUM)
         return
-    else:
-        f(i+1, N, s+MAP[i])
-        f(i+1, N, s)
+    if SUM >= MIN:
+        return
+    for col in range(N):
+        if not visited_col[col]:
+            visited_col[col] = True
+            search(row+1, SUM+MAP[row][col])
+            visited_col[col] = False
+
+
+for test in range(1, int(input())+1):
+    N = int(input())
+    MAP = [list(map(int, input().split())) for _ in range(N)]
+    MIN = float("inf")
+    visited_col = [False] * N
+    search(0, 0)
+    print(f'#{test} {MIN}')
 
 '''
 # 강사님 풀이
