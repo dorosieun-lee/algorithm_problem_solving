@@ -1,4 +1,4 @@
-# SWEA 16655 노드의 거리
+# SWEA 5102 노드의 거리
 
 def BFS(S, V):
     while queue:

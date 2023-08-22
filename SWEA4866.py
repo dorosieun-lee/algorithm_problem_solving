@@ -1,4 +1,4 @@
-# SWEA 16471 괄호검사
+# SWEA 4866 괄호검사
 
 class Stack:
     top = -1

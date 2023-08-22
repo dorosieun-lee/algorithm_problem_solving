@@ -1,4 +1,4 @@
-# SWEA 16522 Forth
+# SWEA 4874 Forth
 
 T = int(input())
 

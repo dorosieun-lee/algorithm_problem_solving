@@ -1,4 +1,4 @@
-# SWEA 16634 피자굽기
+# SWEA 5099 피자굽기
 T = int(input())
 
 for test in range(1, T+1):

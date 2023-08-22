@@ -1,4 +1,4 @@
-# SWEA 16257 색칠하기
+# SWEA 4836 색칠하기
 T = int(input())
 
 for test in range(1, T+1):

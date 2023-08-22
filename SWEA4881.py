@@ -1,4 +1,4 @@
-# SWEA 16584 배열 최소 합
+# SWEA 4881 배열 최소 합
 
 # 완전탐색 -> 런타임 에러
 def permutation(i, N):

@@ -1,4 +1,4 @@
-# SWEA 18542 이진탐색
+# SWEA 5176 이진탐색
 def inorder(n):
     if n: # n이 0이 아니면,
         inorder(ch1[n])

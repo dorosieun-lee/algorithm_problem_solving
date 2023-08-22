@@ -1,4 +1,4 @@
-# SWEA 16494 그래프 경로
+# SWEA 4871 그래프 경로
 
 def dfs(S, G, V, adj_dict):
     stack = [S]

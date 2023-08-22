@@ -1,4 +1,4 @@
-# SWEA 16304 이진 탐색
+# SWEA 4839 이진 탐색
 T = int(input())
 
 

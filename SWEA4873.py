@@ -1,4 +1,4 @@
-# SWEA16472 반복문자 지우기
+# SWEA 4873 반복문자 지우기
 class Stack:
     top = -1
 

@@ -1,4 +1,4 @@
-# SWEA 16305 특별한 정렬
+# SWEA 4843 특별한 정렬
 T = int(input())
 
 for test in range(1, T+1):
