@@ -21,3 +21,25 @@ for test in range(1, T+1):
                 result += s
 
     print(f'#{test} {result}')
+
+
+# 2nd try
+
+T = int(input())
+
+for test in range(1, T+1):
+    str_arr = [[''] * 15 for _ in range(5)] # 미리 2차원 배열 만들기
+    max_len = 0
+    for row in range(5):
+        my_str = list(input())
+        n = len(my_str)
+        max_len = max(n, max_len)
+        str_arr[row][:n] = my_str
+
+    result = ''
+    for col in range(max_len):
+        for row in range(5):
+            result += str_arr[row][col]
+
+    print(max_len)
+    print(f'#{test} {result}')
