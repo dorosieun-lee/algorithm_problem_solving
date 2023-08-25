@@ -38,3 +38,44 @@ for test in range(1, T+1):
         result = max(int(dist), result)
 
     print(f'#{test} {result}')
+
+'''
+강사님 코드
+T = int(input())
+
+for t in range(1,T+1):
+    N = int(input())
+    MAP = [list(map(int, input().split())) for _ in range(N + 1)]
+    repeater = ()
+
+
+    def findRepeater():
+
+        for i in range(N + 1):
+            for j in range(N + 1):
+                if MAP[i][j] == 2:
+                    return i, j
+
+
+    def findDistant(i, j):
+        sqrt = []
+
+        for hi in range(N + 1):
+            for hj in range(N + 1):
+                if MAP[hi][hj] == 1:
+                    sqrt.append((abs(hi - i) ** 2) + abs(hj - j) ** 2)
+
+        return max(sqrt)
+
+
+    repeater = findRepeater()
+    value = findDistant(repeater[0], repeater[1])
+
+    # 입력 n 이있을때, 최대거리는 (n-0)**2 + (n-0)**2이다.
+    # 현재 문제에서는 최대 n이 10이였으므로, 100+100 -> 제곱해서 200이 되는수보단 작다
+    # 15*15를 하면, 225로 유효범위를 넘을 수 있다
+    for i in range(15):
+        if i ** 2 >= value:
+            print(f"#{t} {i}")
+            break
+'''
