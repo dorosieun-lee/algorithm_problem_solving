@@ -32,3 +32,32 @@ for test in range(1, T+1):
     result = MAX - MIN
 
     print(f'#{test} {result}')
+
+'''
+강사님 코드
+T = int(input())
+
+for t in range(1,T+1):
+    N, M = map(int,input().split())
+    answer = list(map(int,(input().split())))
+    student = []
+    score = []
+    for i in range(N):
+        student.append(list(map(int,(input().split()))))
+
+    for i in range(len(student)):
+        cnt = 0
+        result = 0
+        for j in range(len(answer)):
+
+            if student[i][j] == answer[j]:
+                cnt += 1
+                result += cnt
+            else :
+                cnt = 0
+        score.append(result)
+    
+    result = max(score) - min(score)
+
+    print(f"#{t} {result}")
+'''

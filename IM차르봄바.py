@@ -31,3 +31,31 @@ for test in range(1, T+1):
 
 
     print(f'#{test} {MAX}')
+
+'''
+강사님 코드
+dx = [-1, 1, 0, 0] # 상 하 좌 우
+dy = [0, 0, -1, 1] #direct + x,y (방향 배열, 델타탐색 -> x값이 감소되면 "행"이 변함
+
+T = int(input())
+
+for t in range(1, T + 1):
+    N, P = map(int, input().split())
+    MAP = [list(map(int, input().split())) for _ in range(N)]
+
+    result = 0
+
+    for i in range(N):
+        for j in range(N):
+            cnt = MAP[i][j]
+            for d in range(4):
+                for k in range(1, P + 1):
+                    ny = i + dx[d] * k
+                    nx = j + dy[d] * k
+                    if ny < 0 or nx < 0 or ny >= N or nx >= N:
+                        continue
+                    cnt += MAP[ny][nx]
+            result = max(cnt, result)
+
+    print(f"#{t} {result}")
+'''

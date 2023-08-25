@@ -25,3 +25,25 @@ for test in range(1, T+1):
             break
 
     print(f'#{test} {result}')
+
+'''
+강사님 코드
+T = int(input())
+for tc in range(1, T+1) : 
+    N, K = map(int, input().split())
+    sample = list(map(int, input().split()))
+    passcode = list(map(int, input().split()))
+    
+    indexes = [] 
+    res = 1 
+    
+    for i in range(len(passcode)) : 
+        now = passcode[i]
+        try : 
+            index = sample.index(now)
+            sample = sample[index:]
+        except : 
+            res = 0 
+
+    print(f"#{tc} {res}")
+'''

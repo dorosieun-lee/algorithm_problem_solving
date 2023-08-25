@@ -22,7 +22,7 @@ def bit_to_num(lst): # 56의 배수로 들어옴
         num_list.append(my_dic[tmp])
     return num_list
 
-def hex_to_bin(hex_num):
+def hex_to_bin(hex_num): # 16진수를 10진수로 바꾸고 다시 2인수로 바꿈... 비효율적
     N = len(hex_num)
     hex_num = int('0x' + hex_num.lower(), 0)
 

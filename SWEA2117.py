@@ -47,3 +47,39 @@ for test in range(1, T+1):
         K += 1
 
     print(f'#{test} {max(N_home_list)}')
+
+'''
+# 마름모 => 중심에서의 거리가 K보다 작다 의 특징을 잘 이용한 풀이
+# hint by 황호철code
+T = int(input())
+for test in range(1, T+1):
+    N, M = map(int, input().split())
+    city_MAP = [list(map(int, input().split())) for _ in range(N)]
+
+    home_list = []
+    for i in range(N):
+        for j in range(N):
+            if city_MAP[i][j] == 1:
+                home_list.append((i, j))
+
+    K = N+1
+    MAX = 0
+    while K > 0:
+        price = K*K + (K-1)*(K-1)
+        for row in range(N):
+            for col in range(N):
+                home_cnt = 0
+                for hi, hj in home_list:
+                    if abs(hi - row) + abs(hj - col) <= K-1:
+                        home_cnt += 1
+
+                benefit = M * home_cnt - price
+                if benefit > 0:
+                    MAX = max(home_cnt, MAX)
+
+        if MAX != 0:
+            break
+        K -= 1
+
+    print(f'#{test} {MAX}')
+'''

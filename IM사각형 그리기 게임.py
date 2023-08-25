@@ -38,3 +38,31 @@ for test in range(1, T+1):
     cnt = area.count(max(area))
 
     print(f'#{test} {cnt}')
+
+'''
+강사님 코드
+T = int(input())
+
+for t in range(1, T + 1):
+    N = int(input())
+    MAP = [list(map(int, input().split())) for _ in range(N)]
+
+    maxarea = 0
+    result = 0
+
+    for x in range(N):
+        for y in range(N):
+            cur = MAP[x][y]
+
+            for nx in range(x, N):
+                for ny in range(y, N):
+                    if MAP[nx][ny] == cur:
+                        area = (nx - x + 1) * (ny - y + 1)
+                        if area > maxarea:
+                            maxarea = area
+                            result = 1
+                        elif area == maxarea:
+                            result += 1
+
+    print(f"#{t} {result}")
+'''
