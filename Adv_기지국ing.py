@@ -67,7 +67,7 @@ for test in range(1, T+1):
         cb = 0
         for c in tmp:
             cb += Users[cell_numbers.index(c)]
-        cb = cb**2
+        cb = cb #**2
         MAX = max(cb, MAX)
 
     # 인접 여부를 다 표시하거나 알 수 있는 규칙을 찾고
