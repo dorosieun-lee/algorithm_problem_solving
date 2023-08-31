@@ -36,13 +36,13 @@ for test in range(1, T+1):
 
             sorted_idx = sorted_list.index(num_list[i]) # 바꾸고자하는 수가 뒤에서 몇 번째로 큰 수인지 체크
 
-            if sorted_idx+1 <= len(max_idx_list):
+            if sorted_idx+1 <= len(max_idx_list) and (cnt - change_cnt) >= 2:
                 max_idx = max_idx_list[::-1][sorted_idx] # max 숫자가 있는 인덱스들 중 바꾸고자하는 수의 순서에 해당하는 max index 찾기
                 num_list[i], num_list[max_idx] = num_list[max_idx], num_list[i]
                 change_cnt += 1
                 #print('b', change_cnt, num_list)
             else:
-                max_idx = max_idx_list[0]
+                max_idx = max_idx_list[-1]
                 num_list[i], num_list[max_idx] = num_list[max_idx], num_list[i]
                 change_cnt += 1
                 #print('c', change_cnt, num_list)
@@ -57,3 +57,40 @@ for test in range(1, T+1):
     max_number = int(''.join(list(map(str, num_list))))
 
     print(f'#{test} {max_number}')
+
+
+'''
+다른 사람 풀이
+https://unie2.tistory.com/1186
+
+def dfs(index, count) :
+    global result
+    if count == int(cnt) :
+        result = max(int(''.join(data)), result)
+        return
+    for now in range(index, len(data)) :
+        for max_idx in range(now + 1, len(data)) :
+            if data[now] <= data[max_idx] :
+                data[now], data[max_idx] = data[max_idx], data[now]
+                dfs(now, count + 1)
+                data[now], data[max_idx] = data[max_idx], data[now]
+
+    if result == 0 and count < int(cnt) :
+        extra = (int(cnt) - count) % 2
+        # 짝수라면 그대로, 홀수라면 한 번 변경
+        if extra == 1 : # 홀수라면
+            data[-1], data[-2] = data[-2], data[-1]
+        dfs(index, int(cnt))
+
+t = int(input())
+
+for tc in range(1, t + 1) :
+    data, cnt = input().split()
+    data = list(data)
+    result = 0
+    dfs(0, 0)
+
+    print('#%d %d' % (tc, result))
+    
+    
+'''

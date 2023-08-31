@@ -9,7 +9,7 @@ def find_robot(board):
 def go_robot(row, col, cnt):
     if board[row][col] == 'G':
         return
-
+    #
     for k in range(4):
         while True:
             ni, nj = i + di[key], j + dj[key]
