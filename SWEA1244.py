@@ -60,7 +60,7 @@ for test in range(1, T+1):
 
 
 '''
-다른 사람 풀이
+다른 사람 풀이(DFS 풀이)
 https://unie2.tistory.com/1186
 
 def dfs(index, count) :
@@ -92,5 +92,38 @@ for tc in range(1, t + 1) :
 
     print('#%d %d' % (tc, result))
     
+    
+'''
+
+'''
+강사님 풀이
+자료구조를 활용해보자! -> 중복되는 카드가 있는 경우 문제가 된다 -> 그럼 중복을 없애보자!
+T = int(input())
+
+for t in range(1, T+1):
+    numbers, count = input().split()
+    # print(numbers,count)
+    count = int(count)
+
+    # print(set(numbers))
+    # print(set([numbers]))
+    nums = set([numbers])
+    SET = set()
+
+    for _ in range(count):
+        while nums:
+            n = nums.pop()
+            n = list(n)
+            for i in range(len(numbers)-1):
+                for j in range(i + 1, len(numbers)):
+                    # print(i,j)
+                    # print(n[i], n[j])
+                    n[i], n[j] = n[j], n[i]
+                    SET.add(''.join(n))
+                    n[i], n[j] = n[j], n[i]
+        nums, SET = SET, nums
+
+    result = max(nums)
+    print(f'#{t} {result}')
     
 '''

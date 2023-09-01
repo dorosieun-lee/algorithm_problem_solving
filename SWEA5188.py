@@ -23,3 +23,28 @@ for test in range(1, T+1):
 
     print(f'#{test} {MAP[N-1][N-1]}')
 
+'''
+강사님 풀이
+-> 완전탐색
+def findMinvalue(x,y,value):
+    # print(x,y,value)
+    global result
+    if x == N - 1 and y == N - 1: #도착점에 도착했을때
+        result = min(result, value)
+        return
+
+    if 0 <= x + 1 < N:
+        findMinvalue(x+1,y,value + MAP[x+1][y])
+
+    if 0 <= y + 1 < N:
+        findMinvalue(x,y+1,value + MAP[x][y+1])
+
+T = int(input())
+
+for t in range(1, T+1):
+    N = int(input())
+    MAP = [list(map(int,input().split())) for _ in range(N)]
+    result = float("inf")
+    findMinvalue(0,0,MAP[0][0])
+    print(f'#{t} {result}')
+'''
