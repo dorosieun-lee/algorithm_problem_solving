@@ -9,13 +9,12 @@ def solution(n):
         for j in range(i+1, n):
             if total < n:
                 total += num_list[j]
-                print(total)
                 lst += [num_list[j]]
-            elif total >= n:
-                if total == sum:
+                if total == n:
                     print(lst)
-                    answer += 1
+            elif total > n:
                 break
+
 
     return answer
 
