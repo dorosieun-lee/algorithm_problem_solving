@@ -12,19 +12,14 @@ def solution(n):
                 total += num_list[j]
                 lst += [num_list[j]]
                 if total == n:
-<<<<<<< HEAD:프로그래머스_숫자의표현.py
                     answer += 1
                     #print(total)
                     #print(lst)
             elif total >= n:
-=======
-                    print(lst)
-            elif total > n:
->>>>>>> dbf6860c7e1c6663d2e265115a477e00d919a154:프로그래머스_숫자의표현ing.py
                 break
 
-
     return answer
+
 
 n = 15
 print(solution(n))
