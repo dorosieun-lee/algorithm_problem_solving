@@ -12,8 +12,8 @@ def make_binary_list(i, n, bin_str, length, org):
         if i == n:
             bin_num = bin_str + '0' * (length - len(bin_str))
             num = int(bin_num, 2)
-            print(num)
             if num > org:
+                print(bin_num)
                 MIN = min(MIN, num)  # MIN이 안바뀜!!
         return
 
@@ -24,6 +24,7 @@ def make_binary_list(i, n, bin_str, length, org):
 def solution(n):
     global MIN
     n_bin = bin(n)
+    print(n_bin)
     cnt_one = n_bin.count('1')
     length = len(n_bin) - 2
     if cnt_one == length:
@@ -32,5 +33,21 @@ def solution(n):
 
     return MIN
 
-n = 15
+def solution(n):
+    n_bin = bin(n)[2:]
+    last = n_bin[::-1].index('1')
+    cnt_one = n_bin.count('1')
+    for i in range(last-1, -1, 0):
+        if n_bin[i] == 0:
+            change_idx = i
+            break
+    else:
+        change_idx = 0
+
+    if change_idx != 0:
+        answer = n_bin[:change_idx] + '1' + '0' * (last - change_idx) + '1' * len(n_bin) - last)
+    # 어케 푸냐고...
+
+
+n = 86
 print(solution(n))
