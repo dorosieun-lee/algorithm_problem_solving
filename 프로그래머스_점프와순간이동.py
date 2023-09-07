@@ -6,7 +6,7 @@
 
 # N 만큼 떨어진 장소로 가려고 할때, 건전지 사용량의 최솟값을 구하라
 
-
+# 런타임 에러 & 시간 초과
 def solution(N):
     memo = [0] * (N+1)
     memo[1], memo[2] = 1, 1
@@ -19,6 +19,7 @@ def solution(N):
                 memo[n] = memo[n//2]
 
     return memo[N]
+
 
 def solution(N):
     ans = 1
