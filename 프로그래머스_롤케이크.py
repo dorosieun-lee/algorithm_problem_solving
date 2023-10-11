@@ -8,7 +8,7 @@ def solution(topping):
     for i in topping:
         right[str(i)] = right.get(str(i), 0)
         right[str(i)] += 1
-
+    print(right)
     for i in topping:
         left.add(i)
         right[str(i)] -= 1
