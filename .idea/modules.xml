@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../웹개발 공부/Python/.idea/Python.iml" filepath="$PROJECT_DIR$/../웹개발 공부/Python/.idea/Python.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/algorithm_problem_solving.iml" filepath="$PROJECT_DIR$/.idea/algorithm_problem_solving.iml" />
     </modules>
   </component>
