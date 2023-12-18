@@ -55,6 +55,6 @@ musicinfos = ["03:00,03:30,FOO,CC#B", "04:00,04:08,BAR,CC#BCC#BCC#B"]
 # m = "ABC"
 # musicinfos = ["12:00,12:14,HELLO,C#DEFGAB", "13:00,13:05,WORLD,ABCDEF"]
 
-# m =
+
 print(solution(m, musicinfos))
 
