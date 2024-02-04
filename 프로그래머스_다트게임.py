@@ -1,7 +1,6 @@
 # 프로그래머스 [1차]다트 게임
 def solution(dartResult):
     bonus_dict = {'S': 1, 'D': 2, 'T': 3}
-    answer = 0
     points = []
     tmp = dartResult[0]
     for s in dartResult[1:]:
