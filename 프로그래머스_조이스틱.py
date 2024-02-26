@@ -17,6 +17,7 @@ def solution(name):
         while stack:
             n = stack.pop()
             array, idx, cnt = n[0], n[1], n[2]
+            print(array, idx, cnt)
             cnt += min(ord(array[idx]) - 65, 91 - ord(array[idx])) # 아스키 코드값으로 변경 횟수 계산
             array[idx] = 'A'
             if array.count('A') == len(array): # 종료 시점
@@ -30,6 +31,6 @@ def solution(name):
     return bfs((nameList, 0, 0))
 
 name = "JEROEN"
-# name = "JAN"
+name = "JANAAAAB"
 
 print(solution(name))
